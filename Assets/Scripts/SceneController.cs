@@ -42,7 +42,7 @@ public class SceneController : MonoBehaviour
         Vector3 startPos = originalCard.transform.position;
 
         Managers.Audio.PlayMusic(LevelMusic);
-        Managers.Timer.timeStart = 5f;
+        Managers.Timer.timeStart = 15f;
 
 
 

@@ -9,6 +9,8 @@ public class TimerManager : MonoBehaviour, IGameManager
     [SerializeField] private Text timerText;
 
     public float timeStart;
+
+    private bool timeRunninOut = false;
     public ManagerStatus status { get; private set; }
     public void Startup()
     {
@@ -29,6 +31,11 @@ public class TimerManager : MonoBehaviour, IGameManager
         {
             timeStart -= Time.deltaTime;
             timerText.text = Math.Round(timeStart).ToString();
+            if (Math.Round(timeStart) <= 3 && !timeRunninOut)
+            {
+                Messenger.Broadcast(GameEvent.TIME_RUNNING_OUT);
+                timeRunninOut = true;
+            }
         }
 
     }

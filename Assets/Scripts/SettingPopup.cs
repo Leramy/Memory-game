@@ -6,10 +6,12 @@ public class SettingPopup : MonoBehaviour
 {
     public void Open()
     {
+        Time.timeScale = 0f;
         gameObject.SetActive(true);
     }
     public void Close()
     {
+        Time.timeScale = 1f;
         gameObject.SetActive(false);
     }
     public void OnSoundValue(float value)
