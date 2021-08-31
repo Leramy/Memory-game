@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingPopup : MonoBehaviour
+public class TimeUpSetting : MonoBehaviour
 {
+   
     public void Open()
     {
         gameObject.SetActive(true);
@@ -12,13 +13,15 @@ public class SettingPopup : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    public void OnSoundValue(float value)
+
+    public void PlayAgain()
     {
-        Managers.Audio.SoundVolume = value;
+        Messenger.Broadcast(GameEvent.RESTART);
+    }
+
+    public void GoToMenu()
+    {
 
     }
-    public void OnMusicValue(float value)
-    {
-        Managers.Audio.musicVolume = value;
-    }
+
 }

@@ -4,19 +4,24 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioManager))]
+[RequireComponent(typeof(TimerManager))]
 
 public class Managers : MonoBehaviour
 {
     public static AudioManager Audio { get; private set; }
+    public static TimerManager Timer { get; private set; }
 
     private List<IGameManager> _startSequence;
 
     private void Awake()
     {
         Audio = GetComponent<AudioManager>();
+        Timer = GetComponent<TimerManager>();
+
 
         _startSequence = new List<IGameManager>();
         _startSequence.Add(Audio);
+        _startSequence.Add(Timer);
 
         StartCoroutine(StartupManagers());
     }

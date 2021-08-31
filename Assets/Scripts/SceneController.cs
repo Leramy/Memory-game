@@ -22,6 +22,16 @@ public class SceneController : MonoBehaviour
 
     private int _score = 0;
 
+    void Awake()
+    {
+        Messenger.AddListener(GameEvent.RESTART, Restart);
+    }
+
+    void OnDestroy()
+    {
+        Messenger.RemoveListener(GameEvent.RESTART, Restart);
+    }
+
     public bool canReveal
     {
         get { return _secondRevealed == null; } 
@@ -32,6 +42,9 @@ public class SceneController : MonoBehaviour
         Vector3 startPos = originalCard.transform.position;
 
         Managers.Audio.PlayMusic(LevelMusic);
+        Managers.Timer.timeStart = 5f;
+
+
 
         int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3 }; 
         numbers = ShuffleArray(numbers);
@@ -107,6 +120,7 @@ public class SceneController : MonoBehaviour
         _firstRevealed = null; 
         _secondRevealed = null;
     }
+
 
     public void Restart()
     {
