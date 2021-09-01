@@ -22,6 +22,8 @@ public class SceneController : MonoBehaviour
 
     private int _score = 0;
 
+    private int max_score = 4;
+
     void Awake()
     {
         Messenger.AddListener(GameEvent.RESTART, Restart);
@@ -43,8 +45,6 @@ public class SceneController : MonoBehaviour
 
         Managers.Audio.PlayMusic(LevelMusic);
         Managers.Timer.timeStart = 15f;
-
-
 
         int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3 }; 
         numbers = ShuffleArray(numbers);
@@ -70,7 +70,6 @@ public class SceneController : MonoBehaviour
                 float posX = (offsetX * i) + startPos.x;
                 float posY = -(offsetY * j) + startPos.y;
                 card.transform.position = new Vector3(posX, posY, startPos.z);
-
             }
         }
     }
@@ -106,17 +105,19 @@ public class SceneController : MonoBehaviour
         if (_firstRevealed.id == _secondRevealed.id)
         {
             _score++;
+
             Managers.Audio.PlaySound(MatchSound);
             Messenger.Broadcast(GameEvent.SCORE_CHANGED);
-       
-            
+
+            if (_score == max_score) Messenger.Broadcast(GameEvent.LEVEL_COMPLETE);
         }
         else
         {
-            yield return new WaitForSeconds(.5f);
-            _firstRevealed.Unreveal(); 
+            yield return new WaitForSeconds(.15f);
+            _firstRevealed.Unreveal();
             _secondRevealed.Unreveal();
         }
+
         _firstRevealed = null; 
         _secondRevealed = null;
     }

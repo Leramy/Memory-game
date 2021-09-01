@@ -4,4 +4,5 @@
 	public const string TIME_UP = "TIME_UP";
 	public const string TIME_RUNNING_OUT = "TIME_RUNNING_OUT";
 	public const string RESTART = "RESTART";
+	public const string LEVEL_COMPLETE = "LEVEL_COMPLETE";
 }

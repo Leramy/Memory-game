@@ -11,7 +11,7 @@ public class MemoryCard : MonoBehaviour
 
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioClip ClickSound;
-   
+
 
     private int _id;
 
@@ -27,6 +27,7 @@ public class MemoryCard : MonoBehaviour
     }
     public void OnMouseDown()
     {
+        
         if(!EventSystem.current.IsPointerOverGameObject())
         {
             if (cardBack.activeSelf)
@@ -36,7 +37,7 @@ public class MemoryCard : MonoBehaviour
                 controller.CardRevealed(this);
             }
         }
-            
+   
     }
 
     public void Unreveal()

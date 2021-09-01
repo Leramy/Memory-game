@@ -19,14 +19,15 @@ public class UIController : MonoBehaviour
     {
         Messenger.AddListener(GameEvent.SCORE_CHANGED, OnScoreChanged);
         Messenger.AddListener(GameEvent.TIME_UP, OnTimeUp);
+        Messenger.AddListener(GameEvent.LEVEL_COMPLETE, OnLevelComplete);
     }
 
     void OnDestroy()
     {
+        Messenger.RemoveListener(GameEvent.SCORE_CHANGED, OnScoreChanged);
         Messenger.RemoveListener(GameEvent.TIME_UP, OnTimeUp);
+        Messenger.RemoveListener(GameEvent.LEVEL_COMPLETE, OnLevelComplete);
     }
-
-    
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class UIController : MonoBehaviour
         timeUpSetting.Close();
         _score = 0;
         scoreLabel.text = _score.ToString();
-        
+
     }
     private void OnScoreChanged()
     {
@@ -44,7 +45,11 @@ public class UIController : MonoBehaviour
     public void OnOpenSettings()
     {
         soundSource.PlayOneShot(MenuClickSound);
-        settingPopup.Open();
+        if (settingPopup.gameObject.activeSelf)
+        {
+            settingPopup.Close();
+        }
+        else settingPopup.Open();
     }
 
     public void OnTimeUp()
@@ -52,4 +57,9 @@ public class UIController : MonoBehaviour
         soundSource.PlayOneShot(FailedSound);
         timeUpSetting.Open();
     }
-}
+
+    public void OnLevelComplete()
+    {
+        Managers.Audio.musicVolume = 0.5f;
+    }
+ }
