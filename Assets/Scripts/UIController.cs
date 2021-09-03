@@ -8,10 +8,12 @@ public class UIController : MonoBehaviour
     [SerializeField] private Text scoreLabel;
     [SerializeField] private SettingPopup settingPopup;
     [SerializeField] private TimeUpSetting timeUpSetting;
+    [SerializeField] private LevelCompleteSetting levelCompleteSetting;
 
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioClip MenuClickSound;
     [SerializeField] private AudioClip FailedSound;
+    [SerializeField] private AudioClip LevelComplete;
 
     private int _score;
 
@@ -33,6 +35,7 @@ public class UIController : MonoBehaviour
     {
         settingPopup.Close();
         timeUpSetting.Close();
+        levelCompleteSetting.Close();
         _score = 0;
         scoreLabel.text = _score.ToString();
 
@@ -60,6 +63,8 @@ public class UIController : MonoBehaviour
 
     public void OnLevelComplete()
     {
-        Managers.Audio.musicVolume = 0.5f;
+        Managers.Audio.musicVolume = 0.1f;
+        soundSource.PlayOneShot(LevelComplete);
+        levelCompleteSetting.Open();
     }
  }

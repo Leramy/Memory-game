@@ -11,17 +11,17 @@ public class TimerManager : MonoBehaviour, IGameManager
     public float timeStart;
 
     private bool timeRunninOut = false;
-    private bool levelComplete = false;
+    private bool stop = false;
     public ManagerStatus status { get; private set; }
 
     void Awake()
     {
-        Messenger.AddListener(GameEvent.LEVEL_COMPLETE, OnLevelComplete);
+        Messenger.AddListener(GameEvent.LEVEL_COMPLETE, LevelComplete);
     }
 
     void OnDestroy()
     {
-        Messenger.RemoveListener(GameEvent.LEVEL_COMPLETE, OnLevelComplete);
+        Messenger.RemoveListener(GameEvent.LEVEL_COMPLETE, LevelComplete);
     }
 
     public void Startup()
@@ -34,7 +34,7 @@ public class TimerManager : MonoBehaviour, IGameManager
 
     void Update()
     {
-        if (!levelComplete)
+        if(!stop)
         {
             if (Math.Round(timeStart) == 0)
             {
@@ -51,10 +51,11 @@ public class TimerManager : MonoBehaviour, IGameManager
                 }
             }
         }
+        
     }
 
-    private void OnLevelComplete()
+    public void LevelComplete()
     {
-        levelComplete = true;
+        stop = true;
     }
 }
