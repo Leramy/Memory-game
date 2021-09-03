@@ -10,18 +10,7 @@ public class AnimationController : MonoBehaviour
     [SerializeField] private Image starLeft;
     [SerializeField] private Image starRight;
     [SerializeField] private Text NextText;
-    void Awake()
-    {
-        Messenger.AddListener(GameEvent.TIME_RUNNING_OUT,TimeRunningOut);
-        Messenger.AddListener(GameEvent.LEVEL_COMPLETE, OnLevelComplete);
-    }
-
-    void OnDestroy()
-    {
-        Messenger.RemoveListener(GameEvent.TIME_RUNNING_OUT, TimeRunningOut);
-        Messenger.RemoveListener(GameEvent.LEVEL_COMPLETE, OnLevelComplete);
-    }
-
+  
     public void TimeRunningOut()
     {
         Animation timer = timerText.GetComponent<Animation>();

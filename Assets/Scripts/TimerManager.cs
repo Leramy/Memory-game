@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class TimerManager : MonoBehaviour, IGameManager
 {
     [SerializeField] private Text timerText;
+    [SerializeField] private AnimationController anim;
 
     public float timeStart;
 
@@ -50,7 +51,7 @@ public class TimerManager : MonoBehaviour, IGameManager
                 timerText.text = Math.Round(timeStart).ToString();
                 if (Math.Round(timeStart) <= 3 && !timeRunninOut)
                 {
-                    Messenger.Broadcast(GameEvent.TIME_RUNNING_OUT);
+                    anim.TimeRunningOut();
                     timeRunninOut = true;
                 }
             }
