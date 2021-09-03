@@ -11,7 +11,8 @@ public class TimerManager : MonoBehaviour, IGameManager
     public float timeStart;
 
     private bool timeRunninOut = false;
-    private bool stop = false;
+
+    public bool stop;
     public ManagerStatus status { get; private set; }
 
     void Awake()
@@ -27,14 +28,17 @@ public class TimerManager : MonoBehaviour, IGameManager
     public void Startup()
     {
         Debug.Log("Timer manager starting...");
+
         timerText.text = timeStart.ToString();
+
+        stop = true;
 
         status = ManagerStatus.Started;
     }
 
     void Update()
     {
-        if(!stop)
+        if (!stop)
         {
             if (Math.Round(timeStart) == 0)
             {

@@ -44,6 +44,7 @@ public class SceneController : MonoBehaviour
         Vector3 startPos = originalCard.transform.position;
 
         Managers.Audio.PlayMusic(LevelMusic);
+
         Managers.Timer.timeStart = 15f;
 
         int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3 }; 
