@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 public class MemoryCard : MonoBehaviour
 {
     [SerializeField] private GameObject cardBack;
-    [SerializeField] private SceneController controller;
-    [SerializeField] private SettingPopup popup;
 
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioClip ClickSound;
@@ -34,7 +32,7 @@ public class MemoryCard : MonoBehaviour
             {
                 cardBack.SetActive(false);
                 soundSource.PlayOneShot(ClickSound);
-                controller.CardRevealed(this);
+                Controllers.Scene.CardRevealed(this);
             }
         }
    

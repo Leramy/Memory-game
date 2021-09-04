@@ -19,10 +19,10 @@ public class SettingPopup : MonoBehaviour
     }
     public void OnSoundValue(float value)
     {
-        Managers.Audio.SoundVolume = value;
+        Controllers.Audio.SoundVolume = value;
     }
     public void OnMusicValue(float value)
     {
-        Managers.Audio.musicVolume = value;
+        Controllers.Audio.musicVolume = value;
     }
 }

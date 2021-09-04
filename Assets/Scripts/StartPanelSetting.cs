@@ -35,7 +35,7 @@ public class StartPanelSetting : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        Managers.Timer.stop = false;
+        Controllers.Timer.stop = false;
 
         Close();
     }

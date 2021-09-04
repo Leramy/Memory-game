@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIController : MonoBehaviour
+public class UIController : MonoBehaviour, IGameController
 {
+    public ManagerStatus status { get; private set; } 
+
     [SerializeField] private Text scoreLabel;
     [SerializeField] private SettingPopup settingPopup;
 
@@ -33,8 +35,11 @@ public class UIController : MonoBehaviour
         Messenger.RemoveListener(GameEvent.LEVEL_COMPLETE, OnLevelComplete);
     }
 
-    private void Start()
+    public void Startup()
     {
+
+        Debug.Log("UIController started...");
+
         settingPopup.Close();
         timeUpSetting.Close();
         levelCompleteSetting.Close();
@@ -43,6 +48,8 @@ public class UIController : MonoBehaviour
         scoreLabel.text = _score.ToString();
 
         startPanelSetting.Open();
+
+        status = ManagerStatus.Started;
     }
     private void OnScoreChanged()
     {
@@ -68,7 +75,8 @@ public class UIController : MonoBehaviour
 
     public void OnLevelComplete()
     {
-        Managers.Audio.musicVolume = 0.1f;
+        Controllers.Audio.musicVolume = 0.1f;
+
         soundSource.PlayOneShot(LevelComplete);
         levelCompleteSetting.Open();
     }

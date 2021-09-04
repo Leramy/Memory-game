@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioManager))]
-[RequireComponent(typeof(TimerManager))]
+[RequireComponent(typeof(LevelManager))]
 
 public class Managers : MonoBehaviour
 {
-    public static AudioManager Audio { get; private set; }
-    public static TimerManager Timer { get; private set; }
+    public static LevelManager Level { get; private set; }
 
     private List<IGameManager> _startSequence;
 
     private void Awake()
     {
-        Audio = GetComponent<AudioManager>();
-        Timer = GetComponent<TimerManager>();
-
+        Level = GetComponent<LevelManager>();
 
         _startSequence = new List<IGameManager>();
-        _startSequence.Add(Audio);
-        _startSequence.Add(Timer);
+
+        _startSequence.Add(Level);
 
         StartCoroutine(StartupManagers());
     }

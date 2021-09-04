@@ -121,7 +121,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &58266765
+--- !u!1 &30049045
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,22 +129,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 58266767}
-  - component: {fileID: 58266766}
+  - component: {fileID: 30049051}
+  - component: {fileID: 30049050}
+  - component: {fileID: 30049049}
+  - component: {fileID: 30049048}
+  - component: {fileID: 30049047}
+  - component: {fileID: 30049046}
+  - component: {fileID: 30049052}
   m_Layer: 0
-  m_Name: UIController
+  m_Name: Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &58266766
+--- !u!114 &30049046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 58266765}
+  m_GameObject: {fileID: 30049045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161d62f68c8cf334d9b1894a94c4b49a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 2109281923}
+  timeStart: 0
+  stop: 0
+--- !u!114 &30049047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30049045}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12240d0cece906f4d92d166608fc54b6, type: 3}
@@ -159,20 +179,86 @@ MonoBehaviour:
   MenuClickSound: {fileID: 8300000, guid: 7af04e47dcdc9494b9e137e480e318fd, type: 3}
   FailedSound: {fileID: 8300000, guid: 4e0aa002bf22d86438424236f73e61ad, type: 3}
   LevelComplete: {fileID: 8300000, guid: 5898e492b6448c44080d4a05fd70bfda, type: 3}
---- !u!4 &58266767
+--- !u!114 &30049048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30049045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927456194d728404ea9c0f82e9f1ba24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 2109281923}
+  levelComplete: {fileID: 306660107}
+  starLeft: {fileID: 841175570}
+  starRight: {fileID: 64453783}
+  NextText: {fileID: 800974889}
+  timeUp: {fileID: 676431927}
+  PlayAgainText: {fileID: 2061381994}
+--- !u!114 &30049049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30049045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d8af66b3a6eea44a7b65e2829b3236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalCard: {fileID: 1602927712}
+  images:
+  - {fileID: 21300000, guid: 1d619f40f4dcedf47b014dfafd205e71, type: 3}
+  - {fileID: 21300000, guid: 286b02d126becd8409f4f426ebc52269, type: 3}
+  - {fileID: 21300000, guid: 59eeaaefeeb6ba542a10d5379d1f8bd6, type: 3}
+  - {fileID: 21300000, guid: 8ad0520fa57ddb845a97462feab13d58, type: 3}
+  soundSource: {fileID: 202781255}
+  MatchSound: {fileID: 8300000, guid: ac1536b496aba984aa878067bf382098, type: 3}
+  LevelMusic: {fileID: 8300000, guid: 9c471b470bc618d4e8c3c4d9a4cc5d6c, type: 3}
+--- !u!114 &30049050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30049045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d07770e45bf24478912c609e8a7a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &30049051
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 58266765}
+  m_GameObject: {fileID: 30049045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 600.16095, y: 223.16096, z: -72.25998}
+  m_LocalPosition: {x: 596.1934, y: 194.55356, z: -203.42313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &30049052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30049045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b7b03cb837d42c45a90122263d959b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundSource: {fileID: 202781255}
+  musicSource: {fileID: 1360533384}
 --- !u!1 &64453781
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +395,7 @@ Transform:
   m_Children:
   - {fileID: 202781256}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202781254
 GameObject:
@@ -439,79 +525,6 @@ Transform:
   m_Father: {fileID: 171361934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &207200826
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 207200827}
-  - component: {fileID: 207200828}
-  - component: {fileID: 207200829}
-  m_Layer: 0
-  m_Name: SceneController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &207200827
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207200826}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &207200828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207200826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d8af66b3a6eea44a7b65e2829b3236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalCard: {fileID: 1602927712}
-  images:
-  - {fileID: 21300000, guid: 1d619f40f4dcedf47b014dfafd205e71, type: 3}
-  - {fileID: 21300000, guid: 286b02d126becd8409f4f426ebc52269, type: 3}
-  - {fileID: 21300000, guid: 59eeaaefeeb6ba542a10d5379d1f8bd6, type: 3}
-  - {fileID: 21300000, guid: 8ad0520fa57ddb845a97462feab13d58, type: 3}
-  scoreLabel: {fileID: 0}
-  soundSource: {fileID: 202781255}
-  MatchSound: {fileID: 8300000, guid: ac1536b496aba984aa878067bf382098, type: 3}
-  LevelMusic: {fileID: 8300000, guid: 9c471b470bc618d4e8c3c4d9a4cc5d6c, type: 3}
---- !u!114 &207200829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207200826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 927456194d728404ea9c0f82e9f1ba24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 2109281923}
-  levelComplete: {fileID: 306660107}
-  starLeft: {fileID: 841175570}
-  starRight: {fileID: 64453783}
-  NextText: {fileID: 800974889}
-  timeUp: {fileID: 1994316880}
-  PlayAgainText: {fileID: 2061381994}
 --- !u!1 &217823288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,7 +1387,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelCompletePanel: {fileID: 1954755745}
   NextText: {fileID: 800974889}
-  anim: {fileID: 207200829}
 --- !u!114 &736418764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1584,7 +1596,7 @@ RectTransform:
   - {fileID: 1954755746}
   - {fileID: 1289081419}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2399,7 +2411,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1360031969
 GameObject:
@@ -3001,7 +3013,6 @@ GameObject:
   - component: {fileID: 1535426261}
   - component: {fileID: 1535426260}
   - component: {fileID: 1535426259}
-  - component: {fileID: 1535426262}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3047,24 +3058,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1535426262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535426258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5745b46f41451134aa75746b0d8194e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 2109281923}
-  anim: {fileID: 207200829}
-  timeStart: 0
-  stop: 0
 --- !u!1 &1594202451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3411,8 +3406,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardBack: {fileID: 588243834}
-  controller: {fileID: 207200828}
-  popup: {fileID: 0}
   soundSource: {fileID: 202781255}
   ClickSound: {fileID: 8300000, guid: cca9969c941aa8d47ac6c73c30892d15, type: 3}
 --- !u!1 &1607339489
@@ -4146,7 +4139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def5f5e1d6fd6d949a71ffd616145b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 207200829}
   TimeUpPanel: {fileID: 2138853520}
   PlayAgainText: {fileID: 2061381994}
 --- !u!114 &1994316880
@@ -4614,7 +4606,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 58266766}
+      - m_Target: {fileID: 30049047}
         m_MethodName: OnOpenSettings
         m_Mode: 1
         m_Arguments:

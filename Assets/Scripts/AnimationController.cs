@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AnimationController : MonoBehaviour
+public class AnimationController : MonoBehaviour, IGameController
 {
+    public ManagerStatus status { get; private set; }
+
     [SerializeField] private Text timerText;
 
     [SerializeField] private Image levelComplete;
@@ -14,6 +16,12 @@ public class AnimationController : MonoBehaviour
 
     [SerializeField] private Text timeUp;
     [SerializeField] private Text PlayAgainText;
+
+    public void Startup()
+    {
+        Debug.Log("AnimationController started...");
+        status = ManagerStatus.Started;
+    }
 
     public void TimeRunningOut()
     {
@@ -49,7 +57,6 @@ public class AnimationController : MonoBehaviour
 
     public void TimeUp()
     {
-        Debug.Log("Here");
         StartCoroutine(TimeUpCoroutine());
     }
 

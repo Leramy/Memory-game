@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class TimeUpSetting : MonoBehaviour
 {
-    [SerializeField] private AnimationController anim;
-
     [SerializeField] private GameObject TimeUpPanel;
     [SerializeField] private Text PlayAgainText;
     public void Open()
     {
+        Debug.Log("Here");
         TimeUpPanel.SetActive(true);
         gameObject.SetActive(true);
-        anim.TimeUp();
+        Controllers.Anim.TimeUp();
     }
     public void Close()
     {
@@ -24,7 +23,7 @@ public class TimeUpSetting : MonoBehaviour
 
     public void PlayAgain()
     {
-        Messenger.Broadcast(GameEvent.RESTART);
+        Managers.Level.RestartCurrent();
     }
 
     public void GoToMenu()

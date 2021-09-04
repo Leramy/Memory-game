@@ -6,4 +6,5 @@
 	public const string RESTART = "RESTART";
 	public const string LEVEL_COMPLETE = "LEVEL_COMPLETE";
 	public const string START_GAME = "START_GAME";
+	public const string GAME_COMPLETE = "GAME_COMPLETE";
 }

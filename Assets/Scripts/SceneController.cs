@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class SceneController : MonoBehaviour
+public class SceneController : MonoBehaviour, IGameController
 {
+    public ManagerStatus status { get; private set; }
+
     public const int gridRows = 2;
     public const int gridCols = 4;
     public const float offsetX = 2f;
@@ -11,9 +13,9 @@ public class SceneController : MonoBehaviour
 
     [SerializeField] private MemoryCard originalCard;
     [SerializeField] private Sprite[] images;
-    [SerializeField] private TextMesh scoreLabel;
 
     [SerializeField] private AudioSource soundSource;
+
     [SerializeField] private AudioClip MatchSound;
     [SerializeField] private AudioClip LevelMusic;
 
@@ -39,16 +41,19 @@ public class SceneController : MonoBehaviour
         get { return _secondRevealed == null; } 
     }
 
-    void Start()
+    public void Startup()
     {
+        Debug.Log("SceneController started...");
+
         Vector3 startPos = originalCard.transform.position;
 
-        Managers.Audio.PlayMusic(LevelMusic);
+        Controllers.Audio.PlayMusic(LevelMusic);
 
-        Managers.Timer.timeStart = 15f;
+        Debug.Log("Here");
 
         int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3 }; 
         numbers = ShuffleArray(numbers);
+
 
         for (int i = 0; i < gridCols; i++)
         {
@@ -73,6 +78,9 @@ public class SceneController : MonoBehaviour
                 card.transform.position = new Vector3(posX, posY, startPos.z);
             }
         }
+
+       
+        status = ManagerStatus.Started;
     }
 
     private int[] ShuffleArray(int[] numbers)
@@ -107,10 +115,14 @@ public class SceneController : MonoBehaviour
         {
             _score++;
 
-            Managers.Audio.PlaySound(MatchSound);
+            Controllers.Audio.PlaySound(MatchSound);
             Messenger.Broadcast(GameEvent.SCORE_CHANGED);
 
-            if (_score == max_score) Messenger.Broadcast(GameEvent.LEVEL_COMPLETE);
+            if (_score == max_score)
+            {
+                Controllers.Timer.LevelComplete();
+                Messenger.Broadcast(GameEvent.LEVEL_COMPLETE);
+            }
         }
         else
         {
