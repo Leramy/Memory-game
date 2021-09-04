@@ -19,7 +19,7 @@ public class TimerController : MonoBehaviour, IGameController
     {
         Debug.Log("TimerController started...");
 
-        timeStart = 15f;
+        //timeStart = 15f;
         timerText.text = timeStart.ToString();
         stop = true;
 

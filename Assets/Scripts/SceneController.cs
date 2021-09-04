@@ -6,8 +6,9 @@ public class SceneController : MonoBehaviour, IGameController
 {
     public ManagerStatus status { get; private set; }
 
-    public const int gridRows = 2;
-    public const int gridCols = 4;
+    public int gridRows;
+    public int gridCols;
+
     public const float offsetX = 2f;
     public const float offsetY = 2.5f;
 
@@ -24,21 +25,13 @@ public class SceneController : MonoBehaviour, IGameController
 
     private int _score = 0;
 
-    private int max_score = 4;
+    private int max_score;
 
-    void Awake()
-    {
-        Messenger.AddListener(GameEvent.RESTART, Restart);
-    }
-
-    void OnDestroy()
-    {
-        Messenger.RemoveListener(GameEvent.RESTART, Restart);
-    }
+    public int count;
 
     public bool canReveal
     {
-        get { return _secondRevealed == null; } 
+        get { return _secondRevealed == null; }
     }
 
     public void Startup()
@@ -49,11 +42,11 @@ public class SceneController : MonoBehaviour, IGameController
 
         Controllers.Audio.PlayMusic(LevelMusic);
 
-        Debug.Log("Here");
+        max_score = count;
 
-        int[] numbers = { 0, 0, 1, 1, 2, 2, 3, 3 }; 
+        int[] numbers = CreateArray(count);
+
         numbers = ShuffleArray(numbers);
-
 
         for (int i = 0; i < gridCols; i++)
         {
@@ -79,12 +72,24 @@ public class SceneController : MonoBehaviour, IGameController
             }
         }
 
-       
+
         status = ManagerStatus.Started;
     }
 
+    private int[] CreateArray(int count)
+    {
+        int[] array = new int[count * 2];
+
+        for (int i = 0; i < count; i++)
+        {
+            array[2*i] = i;
+            array[2*i + 1] = i;
+        }
+
+        return array;
+    }
     private int[] ShuffleArray(int[] numbers)
-    { 
+    {
         int[] newArray = numbers.Clone() as int[];
         for (int i = 0; i < newArray.Length; i++)
         {
@@ -99,7 +104,7 @@ public class SceneController : MonoBehaviour, IGameController
     public void CardRevealed(MemoryCard card)
     {
         if (_firstRevealed == null)
-        { 
+        {
             _firstRevealed = card;
         }
         else
@@ -121,6 +126,7 @@ public class SceneController : MonoBehaviour, IGameController
             if (_score == max_score)
             {
                 Controllers.Timer.LevelComplete();
+                Managers.Level.SaveProgress();
                 Messenger.Broadcast(GameEvent.LEVEL_COMPLETE);
             }
         }
@@ -131,16 +137,10 @@ public class SceneController : MonoBehaviour, IGameController
             _secondRevealed.Unreveal();
         }
 
-        _firstRevealed = null; 
+        _firstRevealed = null;
         _secondRevealed = null;
     }
 
-
-    public void Restart()
-    {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single); 
-        
-    }
 }
 
 

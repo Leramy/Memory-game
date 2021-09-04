@@ -131,11 +131,11 @@ GameObject:
   m_Component:
   - component: {fileID: 30049051}
   - component: {fileID: 30049050}
-  - component: {fileID: 30049049}
   - component: {fileID: 30049048}
   - component: {fileID: 30049047}
   - component: {fileID: 30049046}
   - component: {fileID: 30049052}
+  - component: {fileID: 30049049}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 2109281923}
-  timeStart: 0
+  timeStart: 15
   stop: 0
 --- !u!114 &30049047
 MonoBehaviour:
@@ -210,6 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8af66b3a6eea44a7b65e2829b3236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridRows: 2
+  gridCols: 4
   originalCard: {fileID: 1602927712}
   images:
   - {fileID: 21300000, guid: 1d619f40f4dcedf47b014dfafd205e71, type: 3}
@@ -219,6 +221,7 @@ MonoBehaviour:
   soundSource: {fileID: 202781255}
   MatchSound: {fileID: 8300000, guid: ac1536b496aba984aa878067bf382098, type: 3}
   LevelMusic: {fileID: 8300000, guid: 9c471b470bc618d4e8c3c4d9a4cc5d6c, type: 3}
+  count: 4
 --- !u!114 &30049050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +369,84 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!1 &104898861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 104898862}
+  - component: {fileID: 104898864}
+  - component: {fileID: 104898863}
+  m_Layer: 5
+  m_Name: LevelNum_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &104898862
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104898861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 736418760}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 65}
+  m_SizeDelta: {x: 160, y: 40}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &104898863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104898861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.22899607, g: 0.7830189, b: 0.7664903, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 1
+--- !u!222 &104898864
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104898861}
+  m_CullTransparentMesh: 0
 --- !u!1 &171361933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,6 +1409,7 @@ RectTransform:
   - {fileID: 841175569}
   - {fileID: 64453782}
   - {fileID: 800974888}
+  - {fileID: 104898862}
   m_Father: {fileID: 1954755746}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1387,6 +1469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelCompletePanel: {fileID: 1954755745}
   NextText: {fileID: 800974889}
+  CurLevelText: {fileID: 104898863}
 --- !u!114 &736418764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2310,6 +2393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startText: {fileID: 1607339491}
+  StartSound: {fileID: 8300000, guid: abe2a182ba1cdd54fb6215be3d327807, type: 3}
 --- !u!114 &1289081421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4029,7 +4113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1954755746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4686,7 +4770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2138853521
 RectTransform:
   m_ObjectHideFlags: 0

@@ -8,10 +8,12 @@ public class LevelCompleteSetting : MonoBehaviour
     [SerializeField] private GameObject LevelCompletePanel;
 
     [SerializeField] private Text NextText;
+    [SerializeField] private Text CurLevelText;
     public void Open()
     {
         LevelCompletePanel.SetActive(true);
         gameObject.SetActive(true);
+        //CurLevelText.text = Managers.Level.curLevel.ToString();
         Controllers.Anim.OnLevelComplete();
     }
     public void Close()
