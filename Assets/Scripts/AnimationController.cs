@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class AnimationController : MonoBehaviour
 {
     [SerializeField] private Text timerText;
+
     [SerializeField] private Image levelComplete;
     [SerializeField] private Image starLeft;
     [SerializeField] private Image starRight;
     [SerializeField] private Text NextText;
-  
+
+    [SerializeField] private Text timeUp;
+    [SerializeField] private Text PlayAgainText;
+
     public void TimeRunningOut()
     {
         Animation timer = timerText.GetComponent<Animation>();
@@ -43,5 +47,21 @@ public class AnimationController : MonoBehaviour
         NextText.gameObject.SetActive(true);
     }
 
+    public void TimeUp()
+    {
+        Debug.Log("Here");
+        StartCoroutine(TimeUpCoroutine());
+    }
 
+    private IEnumerator TimeUpCoroutine()
+    {
+        Animation timeUpAnim = timeUp.GetComponent<Animation>();
+        timeUpAnim.Play("TimeUp");
+
+        yield return new WaitForSeconds(2f);
+
+        timeUpAnim.Stop();
+
+        PlayAgainText.gameObject.SetActive(true);
+    }
 }

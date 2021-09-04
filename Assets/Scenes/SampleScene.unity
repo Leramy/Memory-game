@@ -510,6 +510,8 @@ MonoBehaviour:
   starLeft: {fileID: 841175570}
   starRight: {fileID: 64453783}
   NextText: {fileID: 800974889}
+  timeUp: {fileID: 1994316880}
+  PlayAgainText: {fileID: 2061381994}
 --- !u!1 &217823288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,6 +1196,7 @@ GameObject:
   - component: {fileID: 676431926}
   - component: {fileID: 676431928}
   - component: {fileID: 676431927}
+  - component: {fileID: 676431929}
   m_Layer: 5
   m_Name: Time_up_text
   m_TagString: Untagged
@@ -1261,6 +1264,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676431925}
   m_CullTransparentMesh: 0
+--- !u!111 &676431929
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676431925}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: a4d8e519a68f3144099643895dfb949b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &736418759
 GameObject:
   m_ObjectHideFlags: 0
@@ -4127,6 +4146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def5f5e1d6fd6d949a71ffd616145b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 207200829}
   TimeUpPanel: {fileID: 2138853520}
   PlayAgainText: {fileID: 2061381994}
 --- !u!114 &1994316880

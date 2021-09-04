@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class TimeUpSetting : MonoBehaviour
 {
+    [SerializeField] private AnimationController anim;
+
     [SerializeField] private GameObject TimeUpPanel;
     [SerializeField] private Text PlayAgainText;
     public void Open()
     {
         TimeUpPanel.SetActive(true);
         gameObject.SetActive(true);
-        StartCoroutine(TextAppearance());
+        anim.TimeUp();
     }
     public void Close()
     {
@@ -28,12 +30,5 @@ public class TimeUpSetting : MonoBehaviour
     public void GoToMenu()
     {
 
-    }
-
-    public IEnumerator TextAppearance()
-    {
-        yield return new WaitForSeconds(1f);
-
-        PlayAgainText.gameObject.SetActive(true);
     }
 }
