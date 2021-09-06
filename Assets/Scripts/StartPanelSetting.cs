@@ -22,9 +22,7 @@ public class StartPanelSetting : MonoBehaviour
     {
         Controllers.Audio.musicVolume = 0.5f;
 
-        startText.text = "Level";
-
-        //startText.text = "Level " + Managers.Level.curLevel;
+        startText.text = "Level " + Managers.Level.curLevel.ToString();
 
         yield return new WaitForSeconds(0.5f);
 

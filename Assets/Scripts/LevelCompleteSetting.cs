@@ -13,7 +13,7 @@ public class LevelCompleteSetting : MonoBehaviour
     {
         LevelCompletePanel.SetActive(true);
         gameObject.SetActive(true);
-        //CurLevelText.text = Managers.Level.curLevel.ToString();
+        CurLevelText.text = Managers.Level.curLevel.ToString();
         Controllers.Anim.OnLevelComplete();
     }
     public void Close()

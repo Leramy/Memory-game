@@ -60,7 +60,8 @@ public class LevelManager : MonoBehaviour, IGameManager
     public void StartNewGame()
     {
         Debug.Log("New Game started!");
-        PlayerPrefs.SetInt("curLevel", 1);
+        curLevel = 1;
+        PlayerPrefs.SetInt("curLevel", curLevel-1);
         PlayerPrefs.Save();
         SceneManager.LoadScene("Level 1");
     }

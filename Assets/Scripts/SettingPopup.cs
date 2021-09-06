@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,5 +25,10 @@ public class SettingPopup : MonoBehaviour
     public void OnMusicValue(float value)
     {
         Controllers.Audio.musicVolume = value;
+    }
+
+    public void ToMenu()
+    {
+        Managers.Level.LoadMenu();
     }
 }

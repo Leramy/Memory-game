@@ -72,7 +72,6 @@ public class SceneController : MonoBehaviour, IGameController
             }
         }
 
-
         status = ManagerStatus.Started;
     }
 
