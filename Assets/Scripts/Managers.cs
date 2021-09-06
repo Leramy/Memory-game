@@ -13,6 +13,10 @@ public class Managers : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("Manager awake");
+
+        DontDestroyOnLoad(gameObject);
+
         Level = GetComponent<LevelManager>();
 
         _startSequence = new List<IGameManager>();

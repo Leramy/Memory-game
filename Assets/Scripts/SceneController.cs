@@ -126,8 +126,8 @@ public class SceneController : MonoBehaviour, IGameController
             if (_score == max_score)
             {
                 Controllers.Timer.LevelComplete();
-                Managers.Level.SaveProgress();
                 Messenger.Broadcast(GameEvent.LEVEL_COMPLETE);
+                Managers.Level.SaveProgress();   
             }
         }
         else

@@ -9,7 +9,6 @@ public class TimeUpSetting : MonoBehaviour
     [SerializeField] private Text PlayAgainText;
     public void Open()
     {
-        Debug.Log("Here");
         TimeUpPanel.SetActive(true);
         gameObject.SetActive(true);
         Controllers.Anim.TimeUp();
@@ -28,6 +27,6 @@ public class TimeUpSetting : MonoBehaviour
 
     public void GoToMenu()
     {
-
+        Managers.Level.LoadMenu();
     }
 }

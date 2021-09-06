@@ -25,11 +25,11 @@ public class LevelCompleteSetting : MonoBehaviour
 
     public void PlayNext()
     {
-        // следующий уровень
+        Managers.Level.GoToNext();
     }
 
     public void GoToMenu()
     {
-
+        Managers.Level.LoadMenu();
     }
 }

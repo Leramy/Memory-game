@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour, IGameManager
 
         maxLevel = 3;
 
-        curLevel = PlayerPrefs.GetInt("curLevel",1);
+        curLevel = PlayerPrefs.GetInt("curLevel",0);
 
         status = ManagerStatus.Started;
     }
@@ -38,6 +38,7 @@ public class LevelManager : MonoBehaviour, IGameManager
 
     public void SaveProgress()
     {
+        Debug.Log("Progress saved!");
         PlayerPrefs.SetInt("curLevel", curLevel);
         PlayerPrefs.Save();
     }
@@ -54,6 +55,18 @@ public class LevelManager : MonoBehaviour, IGameManager
     {
         Debug.Log("Menu");
         SceneManager.LoadScene("Menu");
+    }
 
+    public void StartNewGame()
+    {
+        Debug.Log("New Game started!");
+        PlayerPrefs.SetInt("curLevel", 1);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("Level 1");
+    }
+    public void QuiteGame()
+    {
+        Debug.Log("GameOver");
+        Application.Quit();
     }
 }

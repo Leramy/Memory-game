@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 2109281923}
-  timeStart: 15
+  timeStart: 5
   stop: 0
 --- !u!114 &30049047
 MonoBehaviour:
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8af66b3a6eea44a7b65e2829b3236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridRows: 2
+  gridRows: 3
   gridCols: 4
   originalCard: {fileID: 1602927712}
   images:
@@ -218,10 +218,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 286b02d126becd8409f4f426ebc52269, type: 3}
   - {fileID: 21300000, guid: 59eeaaefeeb6ba542a10d5379d1f8bd6, type: 3}
   - {fileID: 21300000, guid: 8ad0520fa57ddb845a97462feab13d58, type: 3}
+  - {fileID: 21300000, guid: 51f2b92188deb094b94236867cf602c9, type: 3}
+  - {fileID: 21300000, guid: e73f1720c24d18b4d88594930307e959, type: 3}
   soundSource: {fileID: 202781255}
   MatchSound: {fileID: 8300000, guid: ac1536b496aba984aa878067bf382098, type: 3}
   LevelMusic: {fileID: 8300000, guid: 9c471b470bc618d4e8c3c4d9a4cc5d6c, type: 3}
-  count: 4
+  count: 6
 --- !u!114 &30049050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,7 +1041,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.3151448
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2359,7 +2361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1289081419
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3113,9 +3115,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535426258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a47e4c66c62415a438c601984ae06751, type: 3}
+  m_Script: {fileID: 11500000, guid: ef9e72ec6ef98b14ea2132e6eb35c272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundSource: {fileID: 202781255}
+  musicSource: {fileID: 1360533384}
 --- !u!114 &1535426260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3442,7 +3446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1602927708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 1, z: 0}
+  m_LocalPosition: {x: -2.7, y: 2.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 588243835}
@@ -4336,7 +4340,7 @@ Transform:
   m_GameObject: {fileID: 2006767274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 1.5, y: 0.7, z: 1}
+  m_LocalScale: {x: 2, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
