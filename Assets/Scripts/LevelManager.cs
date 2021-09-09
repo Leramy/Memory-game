@@ -32,7 +32,9 @@ public class LevelManager : MonoBehaviour, IGameManager
         else
         {
             Debug.Log("Last Level!");
-            Messenger.Broadcast(GameEvent.GAME_COMPLETE);
+            curLevel = 0;
+            PlayerPrefs.SetInt("curLevel", curLevel);
+            SceneManager.LoadScene("Final");
         }
     }
 
@@ -48,7 +50,6 @@ public class LevelManager : MonoBehaviour, IGameManager
         string name = "Level " + curLevel;
         Debug.Log("Loading " + name);
         SceneManager.LoadScene(name);
-
     }
 
     public void LoadMenu()
