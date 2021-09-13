@@ -26,7 +26,7 @@ public class MemoryCard : MonoBehaviour
     public void OnMouseDown()
     {
         
-        if(!EventSystem.current.IsPointerOverGameObject())
+        if(!IsPointerOverUIObject())
         {
             if (cardBack.activeSelf)
             {
@@ -42,4 +42,43 @@ public class MemoryCard : MonoBehaviour
     { 
         cardBack.SetActive(true);
     }
+
+    //public static bool IsPointerOverGameObject()
+    //{
+    //    // Check mouse
+    //    if (EventSystem.current.IsPointerOverGameObject())
+    //    {
+    //        return true;
+    //    }
+
+    //    // Check touches
+    //    for (int i = 0; i < Input.touchCount; i++)
+    //    {
+    //        var touch = Input.GetTouch(i);
+    //        if (touch.phase == TouchPhase.Began)
+    //        {
+    //            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+    //            {
+    //                return true;
+    //            }
+    //        }
+    //    }
+
+    //    return false;
+    //}
+
+
+    private static bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+#if !ANDROID
+        eventDataCurrentPosition.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z);
+#else
+        eventDataCurrentPosition.position = new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
+#endif
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
+    }
+
 }
